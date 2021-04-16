@@ -14,7 +14,7 @@ const sendWelcomeEmail = (email, name) => {
 const sendCancellationEmail = (email, name) => {
     sgMail.send({
         to: email,
-        from: 'joshuakosburn@gmail.com',
+        from: '',
         subject: 'Joshua\'s Task App',
         text: `We hate to see you go, ${name}! Is there anything we could've done to keep you on board? If so, please let us know by replying to this email!`
     })
