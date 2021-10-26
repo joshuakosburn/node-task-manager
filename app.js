@@ -5,8 +5,11 @@ const express = require("express");
 const connectToDB = require("./db/connect");
 const app = express();
 
+const taskRoutes = require('./routes/tasks')
+
 // MIDDLEWARE
 app.use(express.json());
+app.use('/api/v1/tasks', taskRoutes);
 
 const PORT = 3000 || process.env.PORT;
 
