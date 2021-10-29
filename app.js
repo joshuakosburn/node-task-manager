@@ -8,6 +8,7 @@ const app = express();
 const taskRoutes = require('./routes/tasks')
 
 // MIDDLEWARE
+app.use(express.static('./public'));
 app.use(express.json());
 app.use('/api/v1/tasks', taskRoutes);
 
