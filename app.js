@@ -5,12 +5,19 @@ const express = require("express");
 const connectToDB = require("./db/connect");
 const app = express();
 
+const notFound = require('./middleware/not-found');
+const errorHandlerMiddleware = require('./middleware/error-handler');
+
 const taskRoutes = require('./routes/tasks')
 
 // MIDDLEWARE
 app.use(express.static('./public'));
 app.use(express.json());
+
+// ROUTES
 app.use('/api/v1/tasks', taskRoutes);
+app.use(notFound);
+app.use(errorHandlerMiddleware);
 
 const PORT = 3000 || process.env.PORT;
 
